@@ -82,18 +82,30 @@ K3sUltraStarter is a lightweight Kubernetes starter project designed to help dev
 ## Project Structure
 
 ```
-K3sUltraStarter/
-├── k8s-manifests/          # Kubernetes manifests for deployment
-├── sample-app/
-│   ├── backend/            # FastAPI backend source and tests
-│   └── frontend/           # React frontend source and tests
-├── docs/                   # Project documentation
-├── install-scripts/        # Scripts to install/uninstall environment
-├── tests/                  # Additional test scripts
-├── .github/                # GitHub workflows and CI/CD
-├── Makefile                # Build and deployment helper commands
-└── README.md               # This file
+.
+├── K3sUltraStarter/            # Main project directory
+│   ├── k8s-manifests/          # Kubernetes manifests for deployment
+│   ├── sample-app/
+│   │   ├── backend/            # FastAPI backend source and tests
+│   │   └── frontend/           # React frontend source and tests
+│   ├── docs/                   # Project documentation
+│   ├── install-scripts/        # Scripts to install/uninstall environment
+│   ├── tests/                  # Additional test scripts
+│   ├── .github/                # GitHub workflows and CI/CD
+│   ├── course/                 # Course materials
+│   ├── landing-page/           # Landing page files
+│   ├── Makefile                # Build and deployment helper commands
+│   └── README.md               # Project documentation README
+├── cli/                       # CLI scripts
+├── public/                    # Public assets
+├── src/                       # Source code for frontend app
+├── README.md                  # This file
+├── package.json               # Frontend package manifest
+├── package-lock.json          # Frontend package lock
+├── tsconfig.json              # TypeScript config
+└── vite.config.ts             # Vite config file
 ```
+└── vite.config.ts             # Vite config file
 
 ## Contributing
 
