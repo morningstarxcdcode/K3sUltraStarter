@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app-backend
+  template:
+    metadata:
+      labels:
+        app: sample-app-backend
+    spec:
+      containers:
+      - name: backend
+        image: tiangolo/uvicorn-gunicorn-fastapi:python3.9
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        volumeMounts:
+        - name: storage
+          mountPath: /data
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: sample-app-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-app-frontend
+  template:
+    metadata:
+      labels:
+        app: sample-app-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: sample-app-frontend:latest
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        volumeMounts:
+        - name: storage
+          mountPath: /app
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: sample-app-pvc

@@ -1,0 +1,55 @@
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+.file-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.file-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dropzone {
+  transition: all 0.2s ease;
+}
+
+.dropzone.active {
+  border-color: #0D9488;
+  background-color: rgba(13, 148, 136, 0.05);
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #1F2937;
+  color: white;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-in-out;
+}
