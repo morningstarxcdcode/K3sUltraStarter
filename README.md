@@ -1,7 +1,7 @@
 # K3sUltraStarter
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="K3sUltraStarter Animation" width="300"/>
+  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Happy Thursday 22 Animation" width="300"/>
 </p>
 
 K3sUltraStarter is a lightweight Kubernetes starter project designed to help developers quickly set up a Kubernetes environment with a sample full-stack application. It includes a React frontend and a FastAPI backend, along with Kubernetes manifests and deployment scripts to streamline your development and deployment workflow.
